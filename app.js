@@ -357,7 +357,7 @@ app.post("/changepassword", async (req, res) => {
 		await pool.query(
 			`
 			UPDATE public.users
-	        SET password=${newpw}
+	        SET password='${newpw}'
 	        WHERE email='${email}'`
 		);
 
