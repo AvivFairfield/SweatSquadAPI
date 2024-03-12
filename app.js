@@ -402,5 +402,5 @@ app.post("/accountsettings", async (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`SweatSquad listening at http://176.230.127.94:${port}`);
+	console.log(`SweatSquad listening at :${port}`);
 });
