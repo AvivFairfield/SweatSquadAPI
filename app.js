@@ -308,7 +308,9 @@ WHERE id=${formattedId}`);
 app.post("/registeruser", async (req, res) => {
 	try {
 		//Extract user details from the request body
-		const { email } = req.body;
+		const { email, password, fullname, birthdate, weight, goal, gender } =
+			req.body;
+		full_name = fullname.split(" ");
 		await pool.query(
 			`
 			INSERT INTO public.users(
@@ -319,19 +321,17 @@ app.post("/registeruser", async (req, res) => {
 				weight,
 				goal,
 				gender,
-				birthdate,
-				phonenumber)
-				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
+				birthdate)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
 			[
 				email,
-				userPassword,
-				first,
-				last_name,
+				password,
+				full_name[0],
+				full_name[1],
 				weight,
 				goal,
-				gendervalue,
+				gender,
 				birthdate,
-				fullPhone,
 			]
 		);
 
