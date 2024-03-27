@@ -388,6 +388,44 @@ app.post("/changepassword", async (req, res) => {
 		});
 	}
 });
+
+// Route to retrieve user's weight and height
+app.get("/getUserDetails", async (req, res) => {
+    try {
+        const { email } = req.query; //Extracting email from query parameters
+        if (!email) {
+            return res.status(400).json({
+                status: "failed",
+                message: "Email is required",
+            });
+        }
+
+        const { rows } = await pool.query(
+            "SELECT weight, height FROM public.users WHERE email = $1", [email]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({
+                status: "failed",
+                message: "User not found",
+            });
+        }
+
+        const userData = rows[0];
+        res.status(200).json({
+            status: "success",
+            data: userData,
+        });
+    } catch (err) {
+        res.status(500).json({
+            status: "failed",
+            message: `Error retrieving user details: ${err.message}`,
+        });
+    }
+});
+
+
+
 //Route to retrieve or update account settings for a user
 app.post("/accountsettings", async (req, res) => {
 	try {
