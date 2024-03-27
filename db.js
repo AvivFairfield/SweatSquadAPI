@@ -8,7 +8,7 @@ const pool = new Pool({
 	user: "postgres", //Credentials for database access
 	password: "ss123",
 	database: "postgres", //Specifies which database to connect to within PostgreSQL.
-	host: "176.230.127.84", //The network address and port where the PostgreSQL server is accessible
+	host: "176.230.127.53", //The network address and port where the PostgreSQL server is accessible
 	port: 5432,
 });
 
