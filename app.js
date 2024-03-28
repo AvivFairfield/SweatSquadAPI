@@ -453,6 +453,6 @@ app.post("/accountsettings", async (req, res) => {
 	}
 });
 //Starts the server and listens on the specified port for requests
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
 	console.log(`SweatSquad listening at :${port}`);
 });
