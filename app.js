@@ -17,7 +17,7 @@ const secretjwt = "baguette"; //Defining a secret key for JWT
 app.use(express.json());
 
 //Importing the database connection pool
-const { pool } = require("../db");
+const { pool } = require("./db");
 
 //CORS options to allow requests from the specified origin
 var corsOptions = {

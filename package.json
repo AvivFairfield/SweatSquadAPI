@@ -2,13 +2,13 @@
   "name": "sweatsquadback",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.js",
+  "main": "app",
   "engines": {
     "node": "20.x"
   },
   "scripts": {
-    "server": "node api/index.js",
-    "start": "node api/index.js",
+    "server": "node app",
+    "start": "node app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
