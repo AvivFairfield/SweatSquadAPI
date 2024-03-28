@@ -308,8 +308,16 @@ WHERE id=${formattedId}`);
 app.post("/registeruser", async (req, res) => {
 	try {
 		//Extract user details from the request body
-		const { email, password, fullname, birthdate, weight, goal, gender } =
-			req.body;
+		const {
+			email,
+			password,
+			fullname,
+			birthdate,
+			weight,
+			goal,
+			gender,
+			height,
+		} = req.body;
 		full_name = fullname.split(" ");
 		await pool.query(
 			`
@@ -321,8 +329,9 @@ app.post("/registeruser", async (req, res) => {
 				weight,
 				goal,
 				gender,
-				birthdate)
-				VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+				birthdate,
+				height)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
 			[
 				email,
 				password,
@@ -332,6 +341,7 @@ app.post("/registeruser", async (req, res) => {
 				goal,
 				gender,
 				birthdate,
+				height,
 			]
 		);
 
