@@ -2,14 +2,12 @@
 //using the pg module, specifically utilizing connection pooling
 //for efficient management of database connections
 
-const Pool = require("pg").Pool;
+const { Pool } = require("pg");
+require("dotenv").config();
 
 const pool = new Pool({
-	user: "postgres", //Credentials for database access
-	password: "ss123",
-	database: "postgres", //Specifies which database to connect to within PostgreSQL.
-	host: "176.230.127.53", //The network address and port where the PostgreSQL server is accessible
-	port: 5432,
+	connectionString:
+		"postgres://default:vRD7TUIXmpB8@ep-long-morning-a2lrk5g9-pooler.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require",
 });
 
 module.exports = {
