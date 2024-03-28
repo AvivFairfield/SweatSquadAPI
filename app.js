@@ -28,7 +28,7 @@ var corsOptions = {
 app.use(cors());
 
 //Test route to check if the server is running and can connect to the backend
-app.get("/test", async (req, res) => {
+app.get("/", async (req, res) => {
 	res.send("Test Worked, Connected to the backend.");
 });
 
