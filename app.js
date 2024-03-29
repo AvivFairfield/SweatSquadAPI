@@ -413,7 +413,7 @@ app.get("/getUserDetails", async (req, res) => {
 
         const userData = rows[0];
         res.status(200).json({
-            status: "success",
+            status: "success",//success
             data: userData,
         });
     } catch (err) {
