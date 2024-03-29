@@ -28,7 +28,7 @@ var corsOptions = {
 app.use(cors());
 
 //Test route to check if the server is running and can connect to the backend
-app.get("/test", async (req, res) => {
+app.get("/", async (req, res) => {
 	res.send("Test Worked, Connected to the backend.");
 });
 
@@ -308,8 +308,16 @@ WHERE id=${formattedId}`);
 app.post("/registeruser", async (req, res) => {
 	try {
 		//Extract user details from the request body
-		const { email, password, fullname, birthdate, weight, goal, gender } =
-			req.body;
+		const {
+			email,
+			password,
+			fullname,
+			birthdate,
+			weight,
+			goal,
+			gender,
+			height,
+		} = req.body;
 		full_name = fullname.split(" ");
 		await pool.query(
 			`
@@ -321,8 +329,9 @@ app.post("/registeruser", async (req, res) => {
 				weight,
 				goal,
 				gender,
-				birthdate)
-				VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+				birthdate,
+				height)
+				VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`,
 			[
 				email,
 				password,
@@ -332,6 +341,7 @@ app.post("/registeruser", async (req, res) => {
 				goal,
 				gender,
 				birthdate,
+				height,
 			]
 		);
 
@@ -389,6 +399,7 @@ app.post("/changepassword", async (req, res) => {
 	}
 });
 
+
 // Route to retrieve user's weight and height
 app.get("/getUserDetails", async (req, res) => {
     try {
@@ -423,6 +434,7 @@ app.get("/getUserDetails", async (req, res) => {
         });
     }
 });
+
 
 
 
