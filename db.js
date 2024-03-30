@@ -5,10 +5,10 @@
 const Pool = require("pg").Pool;
 
 const pool = new Pool({
-	user: "postgres", //Credentials for database access
-	password: "ss123",
-	database: "postgres", //Specifies which database to connect to within PostgreSQL.
-	host: "176.230.127.205", //The network address and port where the PostgreSQL server is accessible
+	user: "user", //Credentials for database access
+	password: "hVXDoumXOKmXliBr5SvEyS6s3SwtHV0g",
+	database: "a8_pg", //Specifies which database to connect to within PostgreSQL.
+	host: "dpg-co3tnda1hbls73bmjkog-a.frankfurt-postgres.render.com", //The network address and port where the PostgreSQL server is accessible
 	port: 5432,
 });
 
