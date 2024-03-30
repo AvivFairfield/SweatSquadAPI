@@ -10,6 +10,7 @@ const pool = new Pool({
 	database: "a8_pg", //Specifies which database to connect to within PostgreSQL.
 	host: "dpg-co3tnda1hbls73bmjkog-a.frankfurt-postgres.render.com", //The network address and port where the PostgreSQL server is accessible
 	port: 5432,
+	ssl: true,
 });
 
 module.exports = {
